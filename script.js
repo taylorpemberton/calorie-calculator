@@ -42,15 +42,64 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const tdee = bmr * activity;
 
-        const weightLoss = tdee - 500;
-        const weightGain = tdee + 500;
+        const trainingType = document.getElementById('trainingType').value;
+        
+        let proteinPercentage, carbPercentage, fatPercentage;
+        let weightLoss, maintenance, weightGain;
 
-        displayResults(weightLoss, tdee, weightGain);
+        switch(trainingType) {
+            case 'cardio':
+                proteinPercentage = 0.20;
+                carbPercentage = 0.55;
+                fatPercentage = 0.25;
+                weightLoss = tdee - 300;
+                maintenance = tdee;
+                weightGain = tdee + 300;
+                break;
+            case 'bodybuilding':
+                proteinPercentage = 0.30;
+                carbPercentage = 0.40;
+                fatPercentage = 0.30;
+                weightLoss = tdee - 500;
+                maintenance = tdee;
+                weightGain = tdee + 500;
+                break;
+            case 'weightloss':
+                proteinPercentage = 0.30;
+                carbPercentage = 0.45;
+                fatPercentage = 0.25;
+                weightLoss = tdee - 500;
+                maintenance = tdee - 250;
+                weightGain = tdee;
+                break;
+            case 'everyday':
+            default:
+                proteinPercentage = 0.25;
+                carbPercentage = 0.50;
+                fatPercentage = 0.25;
+                weightLoss = tdee - 300;
+                maintenance = tdee;
+                weightGain = tdee + 300;
+        }
+
+        displayResults(weightLoss, maintenance, weightGain, proteinPercentage, carbPercentage, fatPercentage, trainingType);
     }
 
-    function displayResults(weightLoss, maintenance, weightGain) {
+    function displayResults(weightLoss, maintenance, weightGain, proteinPercentage, carbPercentage, fatPercentage, trainingType) {
+        const proteinGrams = calculateMacro(maintenance, proteinPercentage);
+        const carbGrams = calculateMacro(maintenance, carbPercentage);
+        const fatGrams = calculateMacro(maintenance, fatPercentage);
+
+        let trainingTypeText;
+        switch(trainingType) {
+            case 'cardio': trainingTypeText = "Cardio / Endurance"; break;
+            case 'bodybuilding': trainingTypeText = "Bodybuilding"; break;
+            case 'weightloss': trainingTypeText = "Weight Loss"; break;
+            case 'everyday': trainingTypeText = "Everyday Life"; break;
+        }
+
         const resultHTML = `
-            <h2 class="text-xl font-semibold mb-4">Daily Caloric Needs:</h2>
+            <h2 class="text-xl font-semibold mb-4">Your daily caloric needs (${trainingTypeText}):</h2>
             <ul class="list-disc pl-5 space-y-2 mb-6">
                 <li><strong>Weight loss:</strong> ${Math.round(weightLoss)} calories/day</li>
                 <li><strong>Maintenance:</strong> ${Math.round(maintenance)} calories/day</li>
@@ -58,9 +107,9 @@ document.addEventListener('DOMContentLoaded', function() {
             </ul>
             <h2 class="text-xl font-semibold mb-4">Recommended Macros:</h2>
             <ul class="list-disc pl-5 space-y-2">
-                <li><strong>Protein:</strong> ${calculateMacro(maintenance, 0.25)} g</li>
-                <li><strong>Carbohydrates:</strong> ${calculateMacro(maintenance, 0.45)} g</li>
-                <li><strong>Fat:</strong> ${calculateMacro(maintenance, 0.30)} g</li>
+                <li><strong>Protein:</strong> ${proteinGrams} g (${Math.round(proteinPercentage * 100)}%)</li>
+                <li><strong>Carbohydrates:</strong> ${carbGrams} g (${Math.round(carbPercentage * 100)}%)</li>
+                <li><strong>Fat:</strong> ${fatGrams} g (${Math.round(fatPercentage * 100)}%)</li>
             </ul>
         `;
 

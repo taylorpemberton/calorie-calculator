@@ -114,6 +114,16 @@
                     <option value="1.9">Athlete (2x per day)</option>
                 </select>
             </div>
+            <div>
+                <label for="trainingType" class="block mb-2">Training Type</label>
+                <select id="trainingType" name="trainingType" required class="w-full border rounded p-2 hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
+                    <option value="">Select training type</option>
+                    <option value="cardio">Cardio / Endurance</option>
+                    <option value="bodybuilding">Bodybuilding</option>
+                    <option value="weightloss">Weight Loss</option>
+                    <option value="everyday">Everyday Life</option>
+                </select>
+            </div>
             <div id="errorMessage" class="text-red-700 text-sm mt-2 mb-2 hidden"></div>
             <button type="submit" id="calculateButton" class="w-full bg-gray-500 text-white py-2 rounded cursor-pointer" disabled>Calculate</button>
         </form>
