@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const resultHTML = `
-            <h2 class="text-xl font-semibold mb-4">Your daily caloric needs (${trainingTypeText}):</h2>
+            <h2 class="text-xl font-semibold mb-4">Daily Caloric Needs (${trainingTypeText}):</h2>
             <ul class="list-disc pl-5 space-y-2 mb-6">
                 <li><strong>Weight loss:</strong> ${Math.round(weightLoss)} calories/day</li>
                 <li><strong>Maintenance:</strong> ${Math.round(maintenance)} calories/day</li>
