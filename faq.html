@@ -103,6 +103,14 @@
 
     <div id="footer-placeholder"></div>
     <script>
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.dropdown-icon');
+            
+            content.classList.toggle('collapsed');
+            icon.classList.toggle('collapsed');
+        }
+
         // Load the footer
         fetch('footer.html')
             .then(response => response.text())
