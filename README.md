@@ -41,10 +41,6 @@ You can easily customize the appearance of the calculator by modifying the Tailw
 
 Feel free to fork this project and submit pull requests with any improvements or additional features you'd like to see.
 
-## License
-
-[Add your chosen license here]
-
 ## Author
 
 Taylor Pemberton - [Twitter](https://twitter.com/pemberton)
