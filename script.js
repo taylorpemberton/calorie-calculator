@@ -51,17 +51,17 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayResults(weightLoss, maintenance, weightGain) {
         const resultHTML = `
             <h2 class="text-xl font-semibold mb-4">Daily Caloric Needs:</h2>
-            <div class="space-y-2">
-                <p><strong>Weight loss:</strong> ${Math.round(weightLoss)} calories/day</p>
-                <p><strong>Maintenance:</strong> ${Math.round(maintenance)} calories/day</p>
-                <p><strong>Weight gain:</strong> ${Math.round(weightGain)} calories/day</p>
-            </div>
-            <h3 class="text-lg font-semibold mt-6 mb-2">Recommended macronutrients:</h3>
-            <div class="space-y-2">
-                <p><strong>Protein:</strong> ${calculateMacro(maintenance, 0.25)} g</p>
-                <p><strong>Carbohydrates:</strong> ${calculateMacro(maintenance, 0.45)} g</p>
-                <p><strong>Fat:</strong> ${calculateMacro(maintenance, 0.30)} g</p>
-            </div>
+            <ul class="list-disc pl-5 space-y-2 mb-6">
+                <li><strong>Weight loss:</strong> ${Math.round(weightLoss)} calories/day</li>
+                <li><strong>Maintenance:</strong> ${Math.round(maintenance)} calories/day</li>
+                <li><strong>Weight gain:</strong> ${Math.round(weightGain)} calories/day</li>
+            </ul>
+            <h2 class="text-xl font-semibold mb-4">Recommended Macros:</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Protein:</strong> ${calculateMacro(maintenance, 0.25)} g</li>
+                <li><strong>Carbohydrates:</strong> ${calculateMacro(maintenance, 0.45)} g</li>
+                <li><strong>Fat:</strong> ${calculateMacro(maintenance, 0.30)} g</li>
+            </ul>
         `;
 
         calorieResult.innerHTML = resultHTML;
