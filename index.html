@@ -34,110 +34,116 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 flex justify-center items-center min-h-screen p-4">
-    <div class="bg-white shadow-md rounded-2xl p-6 max-w-custom w-full">
-        <div class="flex justify-between items-center mb-8">
-            <h1 class="text-2xl font-bold">Calorie Calculator</h1>
-        </div>
-        <form id="calorieForm" class="space-y-4">
-            <div class="flex space-x-4">
-                <div class="flex-1">
-                    <label for="age" class="block mb-1">Age</label>
-                    <input type="number" id="age" name="age" required class="w-full border rounded p-2 min-h-[42px] hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
-                </div>
-                <div class="flex-1">
-                    <label for="gender" class="block mb-1">Gender</label>
-                    <select id="gender" name="gender" required class="w-full border rounded p-2 hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
-                        <option value="">Select gender</option>
-                        <option value="male" title="Identifies as a man">Male</option>
-                        <option value="female" title="Identifies as a woman">Female</option>
-                        <option value="non-binary" title="Identity falls outside the gender binary">Non-binary</option>
-                        <option value="transgender" title="Gender identity differs from sex assigned at birth">Transgender</option>
-                        <option value="prefer-not-to-say" title="Prefers not to disclose gender">Prefer not to say</option>
-                    </select>
-                </div>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <div class="flex-grow flex justify-center items-center p-4">
+        <div class="bg-white shadow-md rounded-2xl p-6 max-w-custom w-full">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-2xl font-bold">Calorie Calculator</h1>
+                <a href="faq.html" class="text-blue-500 hover:underline">FAQ</a>
             </div>
-            <div class="flex space-x-4">
-                <div class="flex-1">
-                    <label for="weight" class="block mb-1">Weight</label>
-                    <div class="relative">
-                        <input type="number" id="weight" name="weight" required class="w-full border rounded p-2 pr-10 hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
-                        <span class="absolute right-3 top-2 text-gray-400">lbs</span>
+            <form id="calorieForm" class="space-y-4">
+                <div class="flex space-x-4">
+                    <div class="flex-1">
+                        <label for="age" class="block mb-1">Age</label>
+                        <input type="number" id="age" name="age" required class="w-full border rounded px-3 py-2 min-h-[42px] hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
+                    </div>
+                    <div class="flex-1">
+                        <label for="gender" class="block mb-1">Gender</label>
+                        <select id="gender" name="gender" required class="w-full border rounded px-3 py-2 hover:bg-gray-50 transition-colors duration-200 cursor-pointer appearance-none bg-no-repeat bg-right">
+                            <option value="">Select gender</option>
+                            <option value="male" title="Identifies as a man">Male</option>
+                            <option value="female" title="Identifies as a woman">Female</option>
+                            <option value="non-binary" title="Identity falls outside the gender binary">Non-binary</option>
+                            <option value="transgender" title="Gender identity differs from sex assigned at birth">Transgender</option>
+                            <option value="prefer-not-to-say" title="Prefers not to disclose gender">Prefer not to say</option>
+                        </select>
                     </div>
                 </div>
-                <div class="flex-1">
-                    <label for="height" class="block mb-1">Height</label>
-                    <select id="height" name="height" required class="w-full border rounded p-2 hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
-                        <option value="">Select height</option>
-                        <option value="137">4'6"</option>
-                        <option value="140">4'7"</option>
-                        <option value="142">4'8"</option>
-                        <option value="145">4'9"</option>
-                        <option value="147">4'10"</option>
-                        <option value="150">4'11"</option>
-                        <option value="152">5'0"</option>
-                        <option value="155">5'1"</option>
-                        <option value="157">5'2"</option>
-                        <option value="160">5'3"</option>
-                        <option value="163">5'4"</option>
-                        <option value="165">5'5"</option>
-                        <option value="168">5'6"</option>
-                        <option value="170">5'7"</option>
-                        <option value="173">5'8"</option>
-                        <option value="175">5'9"</option>
-                        <option value="178">5'10"</option>
-                        <option value="180">5'11"</option>
-                        <option value="183">6'0"</option>
-                        <option value="185">6'1"</option>
-                        <option value="188">6'2"</option>
-                        <option value="191">6'3"</option>
-                        <option value="193">6'4"</option>
-                        <option value="196">6'5"</option>
-                        <option value="198">6'6"</option>
-                        <option value="201">6'7"</option>
-                        <option value="203">6'8"</option>
-                        <option value="196">6'9"</option>
-                        <option value="198">6'10"</option>
-                        <option value="201">6'11"</option>
-                        <option value="203">7'0"</option>
+                <div class="flex space-x-4">
+                    <div class="flex-1">
+                        <label for="weight" class="block mb-1">Weight</label>
+                        <div class="relative">
+                            <input type="number" id="weight" name="weight" required class="w-full border rounded px-3 py-2 pr-10 hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
+                            <span class="absolute right-3 top-2 text-gray-400">lbs</span>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <label for="height" class="block mb-1">Height</label>
+                        <select id="height" name="height" required class="w-full border rounded px-3 py-2 hover:bg-gray-50 transition-colors duration-200 cursor-pointer appearance-none bg-no-repeat bg-right">
+                            <option value="">Select height</option>
+                            <option value="137">4'6"</option>
+                            <option value="140">4'7"</option>
+                            <option value="142">4'8"</option>
+                            <option value="145">4'9"</option>
+                            <option value="147">4'10"</option>
+                            <option value="150">4'11"</option>
+                            <option value="152">5'0"</option>
+                            <option value="155">5'1"</option>
+                            <option value="157">5'2"</option>
+                            <option value="160">5'3"</option>
+                            <option value="163">5'4"</option>
+                            <option value="165">5'5"</option>
+                            <option value="168">5'6"</option>
+                            <option value="170">5'7"</option>
+                            <option value="173">5'8"</option>
+                            <option value="175">5'9"</option>
+                            <option value="178">5'10"</option>
+                            <option value="180">5'11"</option>
+                            <option value="183">6'0"</option>
+                            <option value="185">6'1"</option>
+                            <option value="188">6'2"</option>
+                            <option value="191">6'3"</option>
+                            <option value="193">6'4"</option>
+                            <option value="196">6'5"</option>
+                            <option value="198">6'6"</option>
+                            <option value="201">6'7"</option>
+                            <option value="203">6'8"</option>
+                            <option value="196">6'9"</option>
+                            <option value="198">6'10"</option>
+                            <option value="201">6'11"</option>
+                            <option value="203">7'0"</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="activity" class="block mb-2">Activity Level</label>
+                    <select id="activity" name="activity" required class="w-full border rounded px-3 py-2 hover:bg-gray-50 transition-colors duration-200 cursor-pointer appearance-none bg-no-repeat bg-right">
+                        <option value="" class="text-gray-400">Select activity</option>
+                        <option value="1.2">Sedentary (little or no exercise)</option>
+                        <option value="1.375">Light exercise (1-3 days/week)</option>
+                        <option value="1.55">Moderate exercise (3-5 days/week)</option>
+                        <option value="1.725">Heavy exercise (6-7 days/week)</option>
+                        <option value="1.9">Athlete (2x per day)</option>
                     </select>
                 </div>
+                <div>
+                    <label for="trainingType" class="block mb-2">Training Type</label>
+                    <select id="trainingType" name="trainingType" required class="w-full border rounded px-3 py-2 hover:bg-gray-50 transition-colors duration-200 cursor-pointer appearance-none bg-no-repeat bg-right">
+                        <option value="">Select training type</option>
+                        <option value="cardio">Cardio / Endurance</option>
+                        <option value="bodybuilding">Bodybuilding</option>
+                        <option value="weightloss">Weight Loss</option>
+                        <option value="everyday">Everyday Life</option>
+                    </select>
+                </div>
+                <div id="errorMessage" class="text-red-700 text-sm mt-2 mb-2 hidden"></div>
+                <button type="submit" id="calculateButton" class="w-full bg-gray-500 text-white py-2 rounded cursor-pointer" disabled>Calculate</button>
+            </form>
+            <div id="result" class="mt-8 hidden">
+                <div id="calorieResult"></div>
             </div>
-            <div>
-                <label for="activity" class="block mb-2">Activity Level</label>
-                <select id="activity" name="activity" required class="w-full border rounded p-2 hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
-                    <option value="" class="text-gray-400">Select activity</option>
-                    <option value="1.2">Sedentary (little or no exercise)</option>
-                    <option value="1.375">Light exercise (1-3 days/week)</option>
-                    <option value="1.55">Moderate exercise (3-5 days/week)</option>
-                    <option value="1.725">Heavy exercise (6-7 days/week)</option>
-                    <option value="1.9">Athlete (2x per day)</option>
-                </select>
-            </div>
-            <div>
-                <label for="trainingType" class="block mb-2">Training Type</label>
-                <select id="trainingType" name="trainingType" required class="w-full border rounded p-2 hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
-                    <option value="">Select training type</option>
-                    <option value="cardio">Cardio / Endurance</option>
-                    <option value="bodybuilding">Bodybuilding</option>
-                    <option value="weightloss">Weight Loss</option>
-                    <option value="everyday">Everyday Life</option>
-                </select>
-            </div>
-            <div id="errorMessage" class="text-red-700 text-sm mt-2 mb-2 hidden"></div>
-            <button type="submit" id="calculateButton" class="w-full bg-gray-500 text-white py-2 rounded cursor-pointer" disabled>Calculate</button>
-        </form>
-        <div id="result" class="mt-8 hidden">
-            <div id="calorieResult"></div>
         </div>
     </div>
-    <footer id="footer" class="fixed bottom-0 left-0 right-0 text-center py-3 pb-4 text-gray-600 text-sm transition-colors duration-200">
-        © <span id="currentYear"></span> by <a href="https://twitter.com/pemberton" class="hover:underline transition-all duration-200" target="_blank" rel="noopener noreferrer">Taylor Pemberton</a> 
-        using <a href="https://cursor.sh" class="hover:underline transition-all duration-200" target="_blank" rel="noopener noreferrer">Cursor</a>
-    </footer>
+    <div id="footer-placeholder"></div>
     <script src="script.js"></script>
     <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        // Load the footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+            });
     </script>
 </body>
 </html>
