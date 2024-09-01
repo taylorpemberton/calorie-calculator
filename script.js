@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function displayResults(weightLoss, maintenance, weightGain) {
         const resultHTML = `
-            <h2 class="text-xl font-semibold mb-4">Your daily caloric needs:</h2>
+            <h2 class="text-xl font-semibold mb-4">Daily Caloric Needs:</h2>
             <div class="space-y-2">
                 <p><strong>Weight loss:</strong> ${Math.round(weightLoss)} calories/day</p>
                 <p><strong>Maintenance:</strong> ${Math.round(maintenance)} calories/day</p>
@@ -79,4 +79,29 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Form:', document.getElementById('calorieForm'));
     console.log('Result Div:', document.getElementById('result'));
     console.log('Calorie Result:', document.getElementById('calorieResult'));
+
+    const footer = document.getElementById('footer');
+    const content = document.querySelector('.bg-white');
+
+    function checkFooterOverlap() {
+        const footerRect = footer.getBoundingClientRect();
+        const contentRect = content.getBoundingClientRect();
+
+        if (footerRect.top < contentRect.bottom) {
+            footer.classList.add('bg-gray-200', 'bg-opacity-75');
+        } else {
+            footer.classList.remove('bg-gray-200', 'bg-opacity-75');
+        }
+    }
+
+    // Check on load and resize
+    window.addEventListener('load', checkFooterOverlap);
+    window.addEventListener('resize', checkFooterOverlap);
+
+    // Check when the form is submitted (in case the result changes the content height)
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        calculateCalories();
+        setTimeout(checkFooterOverlap, 0); // Check after the DOM has updated
+    });
 });
